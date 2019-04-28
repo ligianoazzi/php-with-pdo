@@ -39,13 +39,22 @@ try {
     */
 
     /* Class 6 - FETCH */
-    $query = "select * from products where id = 1"; 
+    /*$query = "select * from products where id = 1"; 
     $stmt = $conn->query($query); 
     $list = $stmt->fetch(PDO::FETCH_ASSOC);
     print_r($list);
     echo $list['name'];
+    */
     // if nor use where in ther clausule, will give just one register, and if invert using order by will give the last register
-  
+    
+    /* Class 7 - Query on the run */
+    $query = "select * from products";
+    ;
+    foreach ($conn->query($query) as $product) {
+        echo $product['name'];
+        echo "<br>";
+    }
+    
     
 
 } catch (\PDOException $e) {
