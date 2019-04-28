@@ -31,13 +31,21 @@ try {
     $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
     echo $list[0]['name'];
 
-    $query = "select * from products"; // more used
+    $query = "select * from products"; 
     $stmt = $conn->query($query); 
-    $list = $stmt->fetchAll(PDO::FETCH_OBJ);
+    $list = $stmt->fetchAll(PDO::FETCH_OBJ); // <- more used
     echo $list[0]->name;
     the pattens is FETCH_BOTH, provide object and associative
     */
 
+    /* Class 6 - FETCH */
+    $query = "select * from products where id = 1"; 
+    $stmt = $conn->query($query); 
+    $list = $stmt->fetch(PDO::FETCH_ASSOC);
+    print_r($list);
+    echo $list['name'];
+    // if nor use where in ther clausule, will give just one register, and if invert using order by will give the last register
+  
     
 
 } catch (\PDOException $e) {
