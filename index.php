@@ -15,7 +15,7 @@ try {
     print_r($return);
     */
 
-    /* Class 4 Query */
+    /* Class 4 Query 
     $query = "select * from products";
 
     $stmt = $conn->query($query);
@@ -23,8 +23,22 @@ try {
     
     echo $list[0][2];
     print_r($list);
-    
+    */
 
+    /* Class 5 - FETCH_ASSOC
+    $query = "select * from products";
+    $stmt = $conn->query($query);
+    $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    echo $list[0]['name'];
+
+    $query = "select * from products"; // more used
+    $stmt = $conn->query($query); 
+    $list = $stmt->fetchAll(PDO::FETCH_OBJ);
+    echo $list[0]->name;
+    the pattens is FETCH_BOTH, provide object and associative
+    */
+
+    
 
 } catch (\PDOException $e) {
     echo "
