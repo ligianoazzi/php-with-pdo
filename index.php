@@ -48,12 +48,23 @@ try {
     // if nor use where in ther clausule, will give just one register, and if invert using order by will give the last register
     
     /* Class 7 - Query on the run */
-    $query = "select * from products";
-    ;
+    /*$query = "select * from products";
+    
     foreach ($conn->query($query) as $product) {
         echo $product['name'];
         echo "<br>";
     }
+    */
+
+    //Class 8 and 9 - Avoid sql injection with prepare statement
+    $query = "select * from products where id=:id";
+    $stmt = $conn->prepare($query);
+    $stmt->bindValue(':id', $_GET['id']);
+    $stmt->execute();
+
+    print_r($stmt->fetchAll());  
+
+
     
     
 
