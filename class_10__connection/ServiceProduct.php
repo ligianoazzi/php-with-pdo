@@ -21,6 +21,17 @@ class ServiceProduct
 
 	}
 
+	public function find($id)
+	{
+		$query = "SELECT * FROM `products` WHERE id = :id";
+		$stmt = $this->db->prepare($query);
+		$stmt->bindValue(":id", $id);		
+		$stmt->execute();
+
+		return $stmt->fetch(\PDO::FETCH_ASSOC);
+
+	}	
+
 	public function save()
 	{
 		$query = "INSERT INTO `products` (`name`, `desc`) VALUES (:name, :description)";
@@ -30,6 +41,7 @@ class ServiceProduct
 		$stmt->execute();
 		return $this->db->lastInsertId();
 	}
+
 
 	public function update()
 	{
