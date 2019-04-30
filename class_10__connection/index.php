@@ -9,14 +9,23 @@ require_once "ServiceProduct.php";
 $db = new Conn("mysql.ligiano.info", "ligiano17", "ligiano17", "ligiano01");
 
 $product = new Product;
+
+/*
 $product->setName("Html course");
 $product->setDesc("Excelent product");
-
 $service = new ServiceProduct($db, $product);
-
-//$service_data = $service->list();
 $service_save = $service->save();
-
 print_r($service_save);
+*/
+
+
+
+$product->setId("4");
+$product->setName("PHP course");
+$product->setDesc("Really Excelent product");
+$service = new ServiceProduct($db, $product);
+$service_update = $service->update();
+echo($service_update);
+
 
 
