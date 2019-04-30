@@ -1,6 +1,6 @@
 <?php
 
-interface Iproduct (){
+interface Iproduct{
 	public function getId();
 	public function setId($id);
 
