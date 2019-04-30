@@ -44,8 +44,14 @@ class ServiceProduct
 		return $ret;
 	}
 
-	public function delete()
+	public function delete(int $id)
 	{
+		$query = "DELETE FROM `products`  WHERE `id`=:id";
+		$stmt = $this->db->prepare($query);
+		$stmt->bindValue(":id", $id);	
 
+		$ret = $stmt->execute();
+
+		return $ret;
 	}
 }

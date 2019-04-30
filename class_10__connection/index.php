@@ -20,12 +20,18 @@ print_r($service_save);
 
 
 
+/*
 $product->setId("4");
 $product->setName("PHP course");
 $product->setDesc("Really Excelent product");
 $service = new ServiceProduct($db, $product);
 $service_update = $service->update();
 echo($service_update);
+*/
+
+$service = new ServiceProduct($db, $product);
+$delete = $service->delete(3);
+echo $delete;
 
 
 
