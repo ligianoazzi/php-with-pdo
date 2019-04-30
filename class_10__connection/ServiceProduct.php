@@ -23,7 +23,12 @@ class ServiceProduct
 
 	public function save()
 	{
-
+		$query = "INSERT INTO `products` (`name`, `desc`) VALUES (:name, :description)";
+		$stmt = $this->db->prepare($query);
+		$stmt->bindValue(":name", $this->product->getName());
+		$stmt->bindValue(":description", $this->product->getDesc());
+		$stmt->execute();
+		return $this->db->lastInsertId();
 	}
 
 	public function update()
