@@ -57,12 +57,16 @@ try {
     */
 
     //Class 8 and 9 - Avoid sql injection with prepare statement
+    /*
     $query = "select * from products where id=:id";
     $stmt = $conn->prepare($query);
     $stmt->bindValue(':id', $_GET['id']);
     $stmt->execute();
 
     print_r($stmt->fetchAll());  
+	*/
+
+    // Class 10 - class of conection
 
 
     
